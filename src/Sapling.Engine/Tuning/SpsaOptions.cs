@@ -54,13 +54,13 @@ namespace Sapling.Engine.Tuning
         public static int NullMovePruningDepth = 2;
 
         [SpsaMinValue("0"), SpsaMaxValue("10")]
-        public static float NullMovePruningReductionA = 2;
+        public static float NullMovePruningReductionA = 3;
 
         [SpsaMinValue("0"), SpsaMaxValue("10")]
-        public static float NullMovePruningReductionB = 7;
+        public static float NullMovePruningReductionB = 4;
 
         [SpsaMinValue("0"), SpsaMaxValue("10")]
-        public static float NullMovePruningReductionC = 5;
+        public static float NullMovePruningReductionC = 3;
 
         [SpsaMinValue("50"), SpsaMaxValue("100")]
         public static int RazorMarginA = 57;
@@ -155,9 +155,9 @@ namespace Sapling.Engine.Tuning
         public const int ReverseFutilityPruningMargin = 67;
         public const int ReverseFutilityPruningDepth = 7;
         public const int NullMovePruningDepth = 2;
-        public const float NullMovePruningReductionA = 2;
-        public const float NullMovePruningReductionB = 7;
-        public const float NullMovePruningReductionC = 5;
+        public const float NullMovePruningReductionA = 3;
+        public const float NullMovePruningReductionB = 4;
+        public const float NullMovePruningReductionC = 3;
         public const int RazorMarginA = 57;
         public const int RazorMarginB = 366;
         public const int InternalIterativeDeepeningDepth = 2;

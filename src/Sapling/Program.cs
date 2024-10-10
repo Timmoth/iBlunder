@@ -7,6 +7,7 @@ using Sapling.Engine.DataGen;
 using Sapling.Engine.Evaluation;
 using Sapling.Engine.MoveGen;
 using Sapling.Engine.Search;
+using Sapling.Engine.Tuning;
 
 namespace Sapling;
 
@@ -105,7 +106,8 @@ private static void Main(string[] args)
             Task.Run(() => System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(RepetitionDetector).TypeHandle)),
             Task.Run(() => System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(HistoryHeuristicExtensions).TypeHandle)),
             Task.Run(() => System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(PVTable).TypeHandle)),
-            Task.Run(() => System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(Zobrist).TypeHandle))
+            Task.Run(() => System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(Zobrist).TypeHandle)),
+            Task.Run(() => System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(SpsaOptions).TypeHandle))
         };
 
         // Wait for all tasks to complete
