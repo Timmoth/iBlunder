@@ -45,7 +45,7 @@ namespace Sapling.Engine.Tuning
     {
 #if OpenBench
         [SpsaMinValue("60"), SpsaMaxValue("80")]
-        public static int ReverseFutilityPruningMargin = 67;
+        public static int ReverseFutilityPruningMargin = 68;
 
         [SpsaMinValue("0"), SpsaMaxValue("10")]
         public static int ReverseFutilityPruningDepth = 7;
@@ -66,7 +66,7 @@ namespace Sapling.Engine.Tuning
         public static int RazorMarginA = 57;
 
         [SpsaMinValue("250"), SpsaMaxValue("400")]
-        public static int RazorMarginB = 366;
+        public static int RazorMarginB = 370;
 
         [SpsaMinValue("0"), SpsaMaxValue("10")]
         public static int InternalIterativeDeepeningDepth = 2;
@@ -93,43 +93,43 @@ namespace Sapling.Engine.Tuning
         public static float LateMoveReductionB = 2.7831153f;
 
         [SpsaMinValue("7000"), SpsaMaxValue("10000")]
-        public static int HistoryHeuristicMaxHistory = 9527;
+        public static int HistoryHeuristicMaxHistory = 9599;
 
         [SpsaMinValue("256"), SpsaMaxValue("1000")]
-        public static int HistoryHeuristicBonusMax = 416;
+        public static int HistoryHeuristicBonusMax = 425;
 
         [SpsaMinValue("50"), SpsaMaxValue("256")]
-        public static int HistoryHeuristicBonusCoeff = 95;
+        public static int HistoryHeuristicBonusCoeff = 86;
 
         [SpsaMinValue("100000"), SpsaMaxValue("300000")]
-        public static int MoveOrderingBestMoveBias = 231532;
+        public static int MoveOrderingBestMoveBias = 240615;
 
         [SpsaMinValue("50000"), SpsaMaxValue("100000")]
-        public static int MoveOrderingEnPassantMoveBias = 78027;
+        public static int MoveOrderingEnPassantMoveBias = 77989;
 
         [SpsaMinValue("50000"), SpsaMaxValue("200000")]
-        public static int MoveOrderingWinningCaptureBias = 144788;
+        public static int MoveOrderingWinningCaptureBias = 142295;
 
         [SpsaMinValue("10000"), SpsaMaxValue("100000")]
-        public static int MoveOrderingLosingCaptureBias = 15878;
+        public static int MoveOrderingLosingCaptureBias = 15778;
 
         [SpsaMinValue("30000"), SpsaMaxValue("100000")]
-        public static int MoveOrderingPromoteBias = 45854;
+        public static int MoveOrderingPromoteBias = 45184;
 
         [SpsaMinValue("30000"), SpsaMaxValue("100000")]
-        public static int MoveOrderingCapturePromoteBias = 32860;
+        public static int MoveOrderingCapturePromoteBias = 30512;
 
         [SpsaMinValue("10000"), SpsaMaxValue("100000")]
-        public static int MoveOrderingKillerABias = 57006;
+        public static int MoveOrderingKillerABias = 61238;
 
         [SpsaMinValue("10000"), SpsaMaxValue("100000")]
-        public static int MoveOrderingCounterMoveBias = 85984;
+        public static int MoveOrderingCounterMoveBias = 87526;
 
         [SpsaMinValue("10000"), SpsaMaxValue("100000")]
-        public static int InterestingNegaMaxMoveScore = 39362;
+        public static int InterestingNegaMaxMoveScore = 40731;
 
         [SpsaMinValue("10000"), SpsaMaxValue("100000")]
-        public static int InterestingQuiescenceMoveScore = 44750;
+        public static int InterestingQuiescenceMoveScore = 40988;
 
         [SpsaMinValue("200"), SpsaMaxValue("300")]
         public static int ProbCutBetaMargin = 220;
@@ -138,28 +138,28 @@ namespace Sapling.Engine.Tuning
         public static int ProbCutMinDepth = 3;
 
         [SpsaMinValue("30"), SpsaMaxValue("100")]
-        public static int AsperationWindowA = 37;
+        public static int AsperationWindowA = 38;
 
         [SpsaMinValue("50"), SpsaMaxValue("200")]
-        public static int AsperationWindowB = 57;
+        public static int AsperationWindowB = 60;
 
         [SpsaMinValue("100"), SpsaMaxValue("500")]
-        public static int AsperationWindowC = 274;
+        public static int AsperationWindowC = 275;
 
         [SpsaMinValue("400"), SpsaMaxValue("1500")]
-        public static int AsperationWindowD = 833;
+        public static int AsperationWindowD = 837;
 
         [SpsaMinValue("1400"), SpsaMaxValue("3000")]
-        public static int AsperationWindowE = 2721;
+        public static int AsperationWindowE = 2662;
 #else
-        public const int ReverseFutilityPruningMargin = 67;
+        public const int ReverseFutilityPruningMargin = 68;
         public const int ReverseFutilityPruningDepth = 7;
         public const int NullMovePruningDepth = 2;
         public const float NullMovePruningReductionA = 3;
         public const float NullMovePruningReductionB = 4;
         public const float NullMovePruningReductionC = 3;
         public const int RazorMarginA = 57;
-        public const int RazorMarginB = 366;
+        public const int RazorMarginB = 370;
         public const int InternalIterativeDeepeningDepth = 2;
         public const int LateMovePruningConstant = 8;
         public const int LateMoveReductionMinDepth = 3;
@@ -168,26 +168,26 @@ namespace Sapling.Engine.Tuning
         public const float LateMoveReductionInterestingB = 2.4956496f;
         public const float LateMoveReductionA = 1.315961f;
         public const float LateMoveReductionB = 2.7831153f;
-        public const int HistoryHeuristicMaxHistory = 9527;
-        public const int HistoryHeuristicBonusMax = 416;
-        public const int HistoryHeuristicBonusCoeff = 95;
-        public const int MoveOrderingBestMoveBias = 231532;
-        public const int MoveOrderingEnPassantMoveBias = 78027;
-        public const int MoveOrderingWinningCaptureBias = 144788;
-        public const int MoveOrderingLosingCaptureBias = 15878;
-        public const int MoveOrderingPromoteBias = 45854;
-        public const int MoveOrderingCapturePromoteBias = 32860;
-        public const int MoveOrderingKillerABias = 57006;
-        public const int MoveOrderingCounterMoveBias = 85984;
-        public const int InterestingNegaMaxMoveScore = 39362;
-        public const int InterestingQuiescenceMoveScore = 44750;
+        public const int HistoryHeuristicMaxHistory = 9599;
+        public const int HistoryHeuristicBonusMax = 425;
+        public const int HistoryHeuristicBonusCoeff = 86;
+        public const int MoveOrderingBestMoveBias = 240615;
+        public const int MoveOrderingEnPassantMoveBias = 77989;
+        public const int MoveOrderingWinningCaptureBias = 142295;
+        public const int MoveOrderingLosingCaptureBias = 15778;
+        public const int MoveOrderingPromoteBias = 45184;
+        public const int MoveOrderingCapturePromoteBias = 30512;
+        public const int MoveOrderingKillerABias = 61238;
+        public const int MoveOrderingCounterMoveBias = 87526;
+        public const int InterestingNegaMaxMoveScore = 40731;
+        public const int InterestingQuiescenceMoveScore = 40988;
         public const int ProbCutBetaMargin = 220;
         public const int ProbCutMinDepth = 3;
-        public const int AsperationWindowA = 37;
-        public const int AsperationWindowB = 57;
-        public const int AsperationWindowC = 274;
-        public const int AsperationWindowD = 833;
-        public const int AsperationWindowE = 2721;
+        public const int AsperationWindowA = 38;
+        public const int AsperationWindowB = 60;
+        public const int AsperationWindowC = 275;
+        public const int AsperationWindowD = 837;
+        public const int AsperationWindowE = 2662;
 #endif
 
         public static int* LateMovePruningInterestingReductionTable;
