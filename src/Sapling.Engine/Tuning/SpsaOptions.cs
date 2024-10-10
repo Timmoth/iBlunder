@@ -241,7 +241,7 @@ namespace Sapling.Engine.Tuning
             {
                 var min = int.Parse(parameter.MinValue);
                 var max = int.Parse(parameter.MaxValue);
-                var ss = Math.Max(minStepSize, (max - min) / 20.0);
+                var ss = Math.Max(minStepSize, (max - min) / 40.0);
                 var lr = double.Round(Math.Max(normalLearningRate, normalLearningRate * (0.50 / ss)), 4);
 
                 return
@@ -251,7 +251,7 @@ namespace Sapling.Engine.Tuning
             {
                 var min = double.Parse(parameter.MinValue);
                 var max = double.Parse(parameter.MaxValue);
-                var ss = Math.Max(minStepSize, (max - min) / 20.0);
+                var ss = Math.Max(minStepSize, (max - min) / 40.0);
                 var lr = double.Round(Math.Max(normalLearningRate, normalLearningRate * (0.50 / ss)), 4);
 
                 return
@@ -266,6 +266,11 @@ namespace Sapling.Engine.Tuning
             foreach (var field in typeof(SpsaOptions).GetFields(BindingFlags.Public | BindingFlags.Static)
                          .Where(x => !x.IsLiteral).ToList())
             {
+
+                if (field.FieldType != typeof(int) && field.FieldType != typeof(float))
+                {
+                    continue;
+                }
                 var defaultValue = field.GetValue(null)?.ToString() ?? "0";
                 // Retrieve the custom attributes, if present
                 var minValueAttribute = field.GetCustomAttribute<SpsaMinValueAttribute>();
