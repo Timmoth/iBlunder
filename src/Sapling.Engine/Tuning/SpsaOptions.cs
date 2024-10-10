@@ -47,19 +47,19 @@ namespace Sapling.Engine.Tuning
         [SpsaMinValue("60"), SpsaMaxValue("80")]
         public static int ReverseFutilityPruningMargin = 67;
 
-        [SpsaMinValue("0"), SpsaMaxValue("10"), SpsaIgnore()]
+        [SpsaMinValue("0"), SpsaMaxValue("10")]
         public static int ReverseFutilityPruningDepth = 7;
 
-        [SpsaMinValue("0"), SpsaMaxValue("10"), SpsaIgnore()]
+        [SpsaMinValue("0"), SpsaMaxValue("10")]
         public static int NullMovePruningDepth = 2;
 
-        [SpsaMinValue("0"), SpsaMaxValue("10"), SpsaIgnore()]
+        [SpsaMinValue("0"), SpsaMaxValue("10")]
         public static float NullMovePruningReductionA = 2;
 
-        [SpsaMinValue("0"), SpsaMaxValue("10"), SpsaIgnore()]
+        [SpsaMinValue("0"), SpsaMaxValue("10")]
         public static float NullMovePruningReductionB = 7;
 
-        [SpsaMinValue("0"), SpsaMaxValue("10"), SpsaIgnore()]
+        [SpsaMinValue("0"), SpsaMaxValue("10")]
         public static float NullMovePruningReductionC = 5;
 
         [SpsaMinValue("50"), SpsaMaxValue("100")]
@@ -68,16 +68,16 @@ namespace Sapling.Engine.Tuning
         [SpsaMinValue("250"), SpsaMaxValue("400")]
         public static int RazorMarginB = 366;
 
-        [SpsaMinValue("0"), SpsaMaxValue("10"), SpsaIgnore()]
+        [SpsaMinValue("0"), SpsaMaxValue("10")]
         public static int InternalIterativeDeepeningDepth = 2;
 
-        [SpsaMinValue("0"), SpsaMaxValue("10"), SpsaIgnore()]
+        [SpsaMinValue("0"), SpsaMaxValue("10")]
         public static int LateMovePruningConstant = 8;
 
-        [SpsaMinValue("0"), SpsaMaxValue("10"), SpsaIgnore()]
+        [SpsaMinValue("0"), SpsaMaxValue("10")]
         public static int LateMoveReductionMinDepth = 3;
 
-        [SpsaMinValue("0"), SpsaMaxValue("10"), SpsaIgnore()]
+        [SpsaMinValue("0"), SpsaMaxValue("10")]
         public static int LateMoveReductionMinMoves = 2;
 
         [SpsaMinValueAttribute("0.1"), SpsaMaxValue("10")]
@@ -131,10 +131,10 @@ namespace Sapling.Engine.Tuning
         [SpsaMinValue("10000"), SpsaMaxValue("100000")]
         public static int InterestingQuiescenceMoveScore = 44750;
 
-        [SpsaMinValue("200"), SpsaMaxValue("300"), SpsaIgnore()]
+        [SpsaMinValue("200"), SpsaMaxValue("300")]
         public static int ProbCutBetaMargin = 220;
 
-        [SpsaMinValue("0"), SpsaMaxValue("6"), SpsaIgnore()]
+        [SpsaMinValue("0"), SpsaMaxValue("6")]
         public static int ProbCutMinDepth = 3;
 
         [SpsaMinValue("30"), SpsaMaxValue("100")]
