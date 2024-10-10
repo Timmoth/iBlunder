@@ -37,4 +37,4 @@ publish:
 	$(MKDIR_CMD)
 	dotnet publish ../../src/Sapling/Sapling.csproj -c Release --runtime $(RUNTIME) --self-contained \
 		-p:PublishSingleFile=true -p:DeterministicBuild=true \
-		-o $(OUTPUT_DIR) -p:ExecutableName=$(EXE)
+		-o $(OUTPUT_DIR) -p:ExecutableName=$(EXE) -p:DefineConstants="OpenBench"
