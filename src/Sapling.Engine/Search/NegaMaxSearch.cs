@@ -124,7 +124,7 @@ public partial class Searcher
                     (transpositionType != TranspositionTableFlag.Alpha || transpositionEvaluation >= beta) &&
                     depth > SpsaOptions.NullMovePruningDepth && currentBoardState->HasMajorPieces())
                 {
-                    var reduction = (int)Math.Max(0, (depth - SpsaOptions.NullMovePruningReductionA) / SpsaOptions.NullMovePruningReductionB + SpsaOptions.NullMovePruningReductionC);
+                    var reduction = *(SpsaOptions.NullMovePruningReductionTable + depth);
 
                     Unsafe.CopyBlock(newBoardState, currentBoardState, BoardStateData.BoardStateSize);
 
@@ -378,7 +378,7 @@ public partial class Searcher
             }
         }
 
-        var logDepth = MathHelpers.LogLookup[depth];
+        var lmpDepth = depth * depth + SpsaOptions.LateMovePruningConstant;
         var searchedMoves = 0;
 
         uint bestMove = default;
@@ -441,7 +441,7 @@ public partial class Searcher
 
             if (canPrune &&
                 !isInteresting &&
-                searchedMoves > depth * depth + SpsaOptions.LateMovePruningConstant)
+                searchedMoves > lmpDepth)
             {
                 // Late move pruning
                 continue;
@@ -468,9 +468,9 @@ public partial class Searcher
                 if (depth >= SpsaOptions.LateMoveReductionMinDepth && searchedMoves >= SpsaOptions.LateMoveReductionMinMoves)
                 {
                     // LMR: Move ordering should ensure a better move has already been found by now so do a shallow search
-                    var reduction = (int)(isInteresting
-                        ? SpsaOptions.LateMoveReductionInterestingA + logDepth * MathHelpers.LogLookup[searchedMoves] / SpsaOptions.LateMoveReductionInterestingB
-                        : SpsaOptions.LateMoveReductionA + logDepth * MathHelpers.LogLookup[searchedMoves] / SpsaOptions.LateMoveReductionB);
+                    var reduction = isInteresting
+                        ? *(SpsaOptions.LateMovePruningInterestingReductionTable + depth * 218 + searchedMoves)
+                        : *(SpsaOptions.LateMovePruningReductionTable + depth * 218 + searchedMoves);
 
                     if (reduction > 0)
                     {

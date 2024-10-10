@@ -41,7 +41,7 @@ namespace Sapling.Engine.Tuning
     }
 
 
-    public static class SpsaOptions
+    public static unsafe class SpsaOptions
     {
 #if OpenBench
         [SpsaMinValue("60"), SpsaMaxValue("80")]
@@ -189,6 +189,38 @@ namespace Sapling.Engine.Tuning
         public const int AsperationWindowD = 833;
         public const int AsperationWindowE = 2721;
 #endif
+
+        public static int* LateMovePruningInterestingReductionTable;
+        public static int* LateMovePruningReductionTable;
+        public static int* NullMovePruningReductionTable;
+        static SpsaOptions()
+        {
+            NullMovePruningReductionTable = MemoryHelpers.Allocate<int>(Constants.MaxSearchDepth);
+            LateMovePruningReductionTable = MemoryHelpers.Allocate<int>(Constants.MaxSearchDepth * 218);
+            LateMovePruningInterestingReductionTable = MemoryHelpers.Allocate<int>(Constants.MaxSearchDepth * 218);
+            UpdateNullMovePruningReductionTable();
+            UpdateLateMovePruningReductionTable();
+        }
+
+        public static void UpdateNullMovePruningReductionTable()
+        {
+            for (var i = 0; i < Constants.MaxSearchDepth; i++)
+            {
+                NullMovePruningReductionTable[i] = (int)Math.Round(Math.Max(0, ((i - NullMovePruningReductionA) / NullMovePruningReductionB) + NullMovePruningReductionC));
+            }
+        }
+
+        public static void UpdateLateMovePruningReductionTable()
+        {
+            for (var i = 0; i < Constants.MaxSearchDepth; i++)
+            {
+                for (var j = 0; j < 218; j++)
+                {
+                    LateMovePruningInterestingReductionTable[i*218 +j] = (int)Math.Round(LateMoveReductionInterestingA + (Math.Log(i) * Math.Log(j)) / LateMoveReductionInterestingB);
+                    LateMovePruningReductionTable[i * 218 + j] = (int)Math.Round(LateMoveReductionA + (Math.Log(i) * Math.Log(j)) / LateMoveReductionB);
+                }
+            }
+        }
     }
 
     public static class SpsaTuner
@@ -292,6 +324,12 @@ namespace Sapling.Engine.Tuning
             if (parameter.Name is "HistoryHeuristicBonusMax" or "HistoryHeuristicBonusCoeff")
             {
                 HistoryHeuristicExtensions.UpdateBonusTable();
+            }else if (parameter.Name.Contains("NullMovePruningReduction"))
+            {
+                SpsaOptions.UpdateNullMovePruningReductionTable();
+            }else if (parameter.Name.Contains("LateMoveReduction"))
+            {
+                SpsaOptions.UpdateLateMovePruningReductionTable();
             }
 
             ProcessUCIOptions();
